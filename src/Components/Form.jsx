@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function Form(props) {
+  //  toUpperCase
   const HandleUpclick = () => {
     let newText = text.toUpperCase();
     if (newText === 0) {
@@ -8,14 +9,32 @@ export default function Form(props) {
     }
     setText(newText);
   };
+
+  // toLowerCase
   const HandleLoclick = () => {
     let newText = text.toLowerCase();
     setText(newText);
   };
+
+  //  clear button
   const HandleClclick = () => {
     let newText = "";
     setText(newText);
   };
+
+  //  JSON to STRING to JSON
+  const [btn, setBtn] = useState("Convert to JSON!");
+  const HandleJNclick = () => {
+    let newText = JSON.stringify(text);
+    if (newText === JSON.stringify(text)) {
+      setText(newText);
+      setBtn("Convert to JSON!");
+    } else {
+      newText = JSON.parse(text);
+      setText(newText);
+    }
+  };
+
   const HandleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -42,6 +61,9 @@ export default function Form(props) {
         <button className="btn btn-secondary " onClick={HandleClclick}>
           Clear Text!
         </button>
+        <button className="btn btn-secondary disabled " onClick={HandleJNclick}>
+          {btn}
+        </button>
       </div>
       <div className="container my-3">
         <h2>Your Text summary</h2>
@@ -52,7 +74,7 @@ export default function Form(props) {
         <hr />
         <h3 className="m-0"> Preview 👇 </h3>
         <hr className="mt-1" />
-        <p> {text}</p>
+        <p> {text.length > 0 ? text :'Enter something to preview'  }</p>
       </div>
     </div>
   );

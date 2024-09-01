@@ -4,7 +4,7 @@ import Navbar from "./Components/Navbar";
 import Form from "./Components/Form";
 function App() {
   return (
-    <>
+    < >
       <Navbar logo={"Practice"} FirstLink={"Home"} SecondLink={"Profile"} />
       <Form  heading={'Enter Text to analyze below'}/>
     </>
