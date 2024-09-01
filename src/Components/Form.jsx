@@ -12,6 +12,10 @@ export default function Form(props) {
     let newText = text.toLowerCase();
     setText(newText);
   };
+  const HandleClclick = () => {
+    let newText = "";
+    setText(newText);
+  };
   const HandleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -33,7 +37,10 @@ export default function Form(props) {
           convert to upperCare!
         </button>
         <button className="btn btn-secondary " onClick={HandleLoclick}>
-          convert to  LowerCase!
+          convert to LowerCase!
+        </button>
+        <button className="btn btn-secondary " onClick={HandleClclick}>
+          Clear Text!
         </button>
       </div>
       <div className="container my-3">
@@ -41,12 +48,10 @@ export default function Form(props) {
         <p>
           {text.split(" ").length} Words {text.length} length
         </p>
-        <p>
-          { 0.08 * text.split(" ").length} Minutes to read
-        </p>
+        <p>{0.08 * text.split(" ").length} Minutes to read</p>
         <hr />
         <h3 className="m-0"> Preview 👇 </h3>
-        <hr className="mt-1"/>
+        <hr className="mt-1" />
         <p> {text}</p>
       </div>
     </div>
